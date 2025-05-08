@@ -1,6 +1,3 @@
-Here’s the updated `README.md` in markdown format, reflecting your instructions (no Node/NPM needed, and includes user login info):
-
-````markdown
 # JobSpark
 
 JobSpark is a web application built as a group project for a Web Development course. It allows users to create, view, update, and delete job listings, complete with company logos and search functionality.
