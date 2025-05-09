@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-
 use App\Models\User;
 use App\Models\Listing;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,17 +15,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(5)->create();
-
+        // Create a single user to associate listings with
         $user = User::factory()->create([
-            'name' => 'John Doe',
-            'email' => 'john@gmail.com'
+            'name' => 'Abebe kebede',
+            'email' => 'abebe@gmail.com'
         ]);
 
+        // Create 6 listings using the factory, linked to the user
         Listing::factory(6)->create([
             'user_id' => $user->id
         ]);
 
+        // Create additional listings manually with the required user_id
         Listing::create([
             'title' => 'Laravel Senior Developer', 
             'tags' => 'laravel, javascript',
@@ -35,7 +34,8 @@ class DatabaseSeeder extends Seeder
             'location' => 'Adama',
             'email' => 'email1@email.com',
             'website' => 'https://www.acme.com',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?',
+            'user_id' => $user->id
         ]);
 
         Listing::create([
@@ -45,7 +45,8 @@ class DatabaseSeeder extends Seeder
             'location' => 'Addisabeba',
             'email' => 'email2@email.com',
             'website' => 'https://www.starkindustries.com',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
-          ]);
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?',
+            'user_id' => $user->id
+        ]);
     }
 }
